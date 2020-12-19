@@ -1,7 +1,5 @@
 #!/bin/bash
-# Fresh install, version 1
-
-# Run as root.
+# Fresh install - Set up a fresh arch-based install
 
 ROOT_UID=0    # Only users with $UID 0 have root privileges
 E_NOTROOT=87  # Non-root exit error
@@ -29,7 +27,6 @@ else
 	echo "Supported shells: bash, zsh"
 	exit 1
 fi
-
 
 # Install packages
 # Official repositories:
