@@ -38,8 +38,10 @@ fi
 #		-code
 #		-emacs
 #		-ffmpeg
+#		-git
 #		-neofetch
 #		-vlc
+#		-xclip
 #		-yay
 #	]
 # AUR:
@@ -50,7 +52,7 @@ fi
 
 echo "Installing packages..."
 
-sudo pacman -Syu yay vlc base-devel ffmpeg code neofetch emacs git
+sudo pacman -Syu yay vlc base-devel ffmpeg code neofetch emacs git xclip
 
 yay -Syu google-chrome
 
