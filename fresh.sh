@@ -47,7 +47,6 @@ fi
 # AUR:
 #	[
 #		-google-chrome
-#		-tts-ms-fonts
 #	]
 
 echo "Installing packages..."
