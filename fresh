@@ -6,10 +6,11 @@ E_NOTROOT=87  # Non-root exit error
 ORIG_DIR=$PWD # If user wants to return to original working directory
 
 ALIASES=\
-"\nalias search='pacman -Ss'\n\
+"\n\
+alias search='pacman -Ss'\n\
 alias searchy='yay -Ss'\n\
 alias remove='sudo pacman -Rs'\n\
-alias temacs='emacs -nw'"
+alias update='sudo pacman -Syu'"
 
 cd $HOME
 
@@ -58,13 +59,26 @@ fi
 
 echo "Installing packages..."
 
-sudo pacman -Syu base-devel code ffmpeg git neofetch \
+# Official repositories
+# NOTE: VIRTUALBOX VERSION DEPENDS ON KERNEL.
+printf "\nKERNEL: %s\n" $(uname -r)
+
+sudo pacman -Syu virtualbox
+modprobe vboxdrv
+
+sudo pacman -S --noconfirm --needed \
+                 base-devel code ffmpeg git neofetch \
                  transmission-gtk vlc xclip yay
 
-yay -Syu atom google-chrome
+# AUR
+yay -S atom google-chrome
 
+# APM
 apm install atom-beautify emacs-plus livereload minimap \
             pigments todo-show
+
+# TODO: Move script to /usr/local/bin,
+#+      then self-destruct.
 
 echo $ORIG_DIR
 
