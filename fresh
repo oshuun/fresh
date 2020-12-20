@@ -33,26 +33,27 @@ fi
 #	[
 #		-base-devel
 #		-code
-#		-emacs
 #		-ffmpeg
 #		-git
 #		-neofetch
+#		-transmission-gtk
 #		-vlc
 #		-xclip
 #		-yay
 #	]
 # AUR:
 #	[
+#		-atom
 #		-google-chrome
 #	]
 
 echo "Installing packages..."
 
-sudo pacman -Syu yay vlc base-devel ffmpeg code neofetch emacs git xclip
+sudo pacman -Syu base-devel code ffmpeg git neofetch \
+								 transmission-gtk vlc xclip yay
 
-yay -Syu google-chrome
+yay -Syu atom google-chrome
 
 echo $ORIG_DIR
 
 exec $SHELL
-
