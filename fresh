@@ -3,7 +3,7 @@
 
 ROOT_UID=0    # Only users with $UID 0 have root privileges
 E_NOTROOT=87  # Non-root exit error
-ORIG_DIR=$PWD # There if user wants to return to original working directory
+ORIG_DIR=$PWD # If user wants to return to original working directory
 
 ALIASES=\
 "\nalias search='pacman -Ss'\n\
@@ -46,13 +46,25 @@ fi
 #		-atom
 #		-google-chrome
 #	]
+# Atom Package Manager:
+# [
+#		-atom-beautify
+#		-emacs-plus
+#		-livereload
+#		-minimap
+#		-pigments
+#		-todo-show
+# ]
 
 echo "Installing packages..."
 
 sudo pacman -Syu base-devel code ffmpeg git neofetch \
-								 transmission-gtk vlc xclip yay
+                 transmission-gtk vlc xclip yay
 
 yay -Syu atom google-chrome
+
+apm install atom-beautify emacs-plus livereload minimap \
+            pigments todo-show
 
 echo $ORIG_DIR
 
