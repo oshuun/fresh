@@ -8,7 +8,7 @@ ORIG_DIR=$PWD # There if user wants to return to original working directory
 ALIASES=\
 "\nalias search='pacman -Ss'\n\
 alias searchy='yay -Ss'\n\
-alias remove='pacman -Rs'\n\
+alias remove='sudo pacman -Rs'\n\
 alias temacs='emacs -nw'"
 
 cd $HOME
