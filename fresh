@@ -10,7 +10,8 @@ ALIASES=\
 alias search='pacman -Ss'\n\
 alias searchy='yay -Ss'\n\
 alias remove='sudo pacman -Rs'\n\
-alias update='sudo pacman -Syu'"
+alias update='sudo pacman -Syu'\n\
+alias ls='lsd'"
 
 cd $HOME
 
@@ -33,11 +34,17 @@ fi
 # Official repositories:
 #	[
 #		-base-devel
+#		-bat
 #		-code
+#		-discord
+#		-expect
 #		-ffmpeg
 #		-git
+#		-lsd
 #		-neofetch
+#		-ocl-icd
 #		-transmission-gtk
+#		-virtualbox
 #		-vlc
 #		-xclip
 #		-yay
@@ -45,6 +52,7 @@ fi
 # AUR:
 #	[
 #		-atom
+#		-foldingathome
 #		-google-chrome
 #	]
 # Atom Package Manager:
@@ -67,11 +75,12 @@ sudo pacman -Syu virtualbox
 modprobe vboxdrv
 
 sudo pacman -S --noconfirm --needed \
-                 base-devel code ffmpeg git neofetch \
-                 transmission-gtk vlc xclip yay
+                 base-devel bat code discord expect \
+                 ffmpeg git lsd neofetch ocl-icd transmission-gtk \
+                 vlc xclip yay
 
 # AUR
-yay -S atom google-chrome
+yay -S atom foldingathome google-chrome
 
 # APM
 apm install atom-beautify emacs-plus livereload minimap \
