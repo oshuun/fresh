@@ -35,14 +35,20 @@ fi
 #	[
 #		-base-devel
 #		-bat
+#		-cmatrix
 #		-code
 #		-discord
 #		-expect
 #		-ffmpeg
+#		-gcc
 #		-git
+#		-htop
+#		-libreoffice-fresh
 #		-lsd
 #		-neofetch
 #		-ocl-icd
+#		-okular
+#		-pacgraph
 #		-transmission-gtk
 #		-virtualbox
 #		-vlc
@@ -51,19 +57,12 @@ fi
 #	]
 # AUR:
 #	[
-#		-atom
-#		-foldingathome
 #		-google-chrome
 #	]
-# Atom Package Manager:
-# [
-#		-atom-beautify
-#		-emacs-plus
-#		-livereload
-#		-minimap
-#		-pigments
-#		-todo-show
-# ]
+
+echo "Updating..."
+
+sudo pacman -Syu
 
 echo "Installing packages..."
 
@@ -71,22 +70,27 @@ echo "Installing packages..."
 # NOTE: VIRTUALBOX VERSION DEPENDS ON KERNEL.
 printf "\nKERNEL: %s\n" $(uname -r)
 
-sudo pacman -Syu virtualbox
+sudo pacman -S virtualbox
 modprobe vboxdrv
 
 sudo pacman -S --noconfirm --needed \
-                 base-devel bat code discord expect \
-                 ffmpeg git lsd neofetch ocl-icd transmission-gtk \
-                 vlc xclip yay
+                 base-devel bat cmatrix code discord expect \
+                 ffmpeg gcc git htop libreoffice-fresh lsd neofetch \
+				 ocl-icd okular pacgraph transmission-gtk vlc xclip yay \
+                 
+# VS Code extensions
+code --install-extension tuttieee.emacs-mcx
+code --install-extension CoenraadS.bracket-pair-colorizer-2
+code --install-extension eamodio.gitlens
+code --install-extension ms-python.python
+code --install-extension ritwickdey.LiveServer
+code --install-extension wayou.vscode-todo-highlight
 
+# TODO: Find --noconfirm equivalent for yay
 # AUR
-yay -S atom foldingathome google-chrome
+yay -S google-chrome
 
-# APM
-apm install atom-beautify emacs-plus livereload minimap \
-            pigments todo-show
-
-# TODO: Move script to /usr/local/bin,
+# TODO: Move script to /usr/local/bin, execute,
 #+      then self-destruct.
 
 echo $ORIG_DIR
